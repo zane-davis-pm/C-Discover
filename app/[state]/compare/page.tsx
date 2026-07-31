@@ -24,10 +24,11 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function ComparePage({
+export default async function ComparePage({
   params,
 }: {
-  params: { state: string };
+  params: Promise<{ state: string }>;
 }) {
-  return <ComparePageClient params={params} />;
+  const { state } = await params;
+  return <ComparePageClient params={{ state }} />;
 }

@@ -22,6 +22,11 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function MapPage({ params }: { params: { state: string } }) {
-  return <MapPageClient params={params} />;
+export default async function MapPage({
+  params,
+}: {
+  params: Promise<{ state: string }>;
+}) {
+  const { state } = await params;
+  return <MapPageClient params={{ state }} />;
 }

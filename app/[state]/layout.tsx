@@ -38,15 +38,16 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function StateLayout({
+export default async function StateLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { state: string };
+  params: Promise<{ state: string }>;
 }) {
+  const { state } = await params;
   const manifest = getStatesManifest();
-  const known = manifest.states.some((s) => s.code === params.state);
+  const known = manifest.states.some((s) => s.code === state);
   if (!known) {
     redirect(`/${DEFAULT_STATE}`);
   }

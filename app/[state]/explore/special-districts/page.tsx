@@ -22,6 +22,11 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function SpecialDistrictsPage({ params }: { params: { state: string } }) {
-  return <SpecialDistrictsPageClient params={params} />;
+export default async function SpecialDistrictsPage({
+  params,
+}: {
+  params: Promise<{ state: string }>;
+}) {
+  const { state } = await params;
+  return <SpecialDistrictsPageClient params={{ state }} />;
 }

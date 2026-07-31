@@ -25,6 +25,11 @@ export function generateStaticParams() {
 }
 
 /** /{state} -> /{state}/explore/counties, the primary entry point per state. */
-export default function StateHome({ params }: { params: { state: string } }) {
-  redirect(`/${params.state}/explore/counties`);
+export default async function StateHome({
+  params,
+}: {
+  params: Promise<{ state: string }>;
+}) {
+  const { state } = await params;
+  redirect(`/${state}/explore/counties`);
 }

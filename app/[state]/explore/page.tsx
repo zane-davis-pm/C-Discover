@@ -30,10 +30,11 @@ export function generateStaticParams() {
  * counties, the primary entry point, so legacy "/explore" redirects and
  * hand-typed URLs never 404.
  */
-export default function ExploreIndex({
+export default async function ExploreIndex({
   params,
 }: {
-  params: { state: string };
+  params: Promise<{ state: string }>;
 }) {
-  redirect(`/${params.state}/explore/counties`);
+  const { state } = await params;
+  redirect(`/${state}/explore/counties`);
 }

@@ -22,6 +22,11 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function ShortlistPage({ params }: { params: { state: string } }) {
-  return <ShortlistPageClient params={params} />;
+export default async function ShortlistPage({
+  params,
+}: {
+  params: Promise<{ state: string }>;
+}) {
+  const { state } = await params;
+  return <ShortlistPageClient params={{ state }} />;
 }

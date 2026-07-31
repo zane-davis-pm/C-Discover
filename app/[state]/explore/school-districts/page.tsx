@@ -22,6 +22,11 @@ export function generateStaticParams() {
   return manifest.states.map((s) => ({ state: s.code }));
 }
 
-export default function SchoolDistrictsPage({ params }: { params: { state: string } }) {
-  return <SchoolDistrictsPageClient params={params} />;
+export default async function SchoolDistrictsPage({
+  params,
+}: {
+  params: Promise<{ state: string }>;
+}) {
+  const { state } = await params;
+  return <SchoolDistrictsPageClient params={{ state }} />;
 }
