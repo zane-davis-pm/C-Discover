@@ -1,0 +1,49 @@
+# Spec-Driven Development Best Practices — June 2026
+
+Spec-driven development (SDD) treats the specification as the durable source of truth for product intent, architecture, acceptance criteria, and validation, with code treated as an implementation artifact that must be generated, reviewed, or verified against the spec. 【1-9cce47】【2-e3db31】 In 2026, this matters because AI coding agents are powerful but literal: they perform best when requirements, constraints, and “done” conditions are explicit rather than buried in prompts, chats, or tribal knowledge. 【3-8ff2d0】【4-926af8】
+
+## 1. Make the spec a living repo artifact
+
+Keep specs version-controlled alongside code, ideally under `specs/`, `.specify/`, or a similar repo-native directory, so product decisions, design tradeoffs, and implementation tasks evolve with the codebase. 【5-7a2634】【6-599c2d】 Do not treat the spec as a kickoff document; update it whenever behavior, scope, constraints, or acceptance criteria change. 【3-8ff2d0】【7-9ea346】
+
+A good spec should include the user problem, goals, non-goals, user journeys, functional requirements, non-functional requirements, edge cases, data/API contracts, acceptance criteria, and validation plan. 【3-8ff2d0】【2-e3db31】 For AI-assisted work, also include explicit constraints such as approved frameworks, security boundaries, performance expectations, observability needs, and migration rules. 【4-926af8】【8-8ccc44】
+
+## 2. Use a phased workflow: Specify → Plan → Tasks → Implement
+
+The strongest SDD workflows separate thinking from coding: first define requirements, then produce a technical plan, then break work into reviewable tasks, and only then implement. 【3-8ff2d0】【9-a0be24】 This prevents the agent from improvising architecture and makes human review happen before expensive code changes are made. 【10-cbde1e】【11-cbf52a】
+
+Each phase should have a human checkpoint: product reviews the requirements, engineering reviews the design, leads review task sequencing, and maintainers review implementation diffs against the spec. 【3-8ff2d0】【2-e3db31】 For ambiguous work, require the agent or engineer to ask targeted clarifying questions before implementation. 【4-926af8】【9-a0be24】
+
+## 3. Write requirements in testable language
+
+Use structured, testable requirement formats such as EARS-style statements: “WHEN [trigger], THE SYSTEM SHALL [response]” or “WHILE [state], THE SYSTEM SHALL [behavior].” 【9-a0be24】【12-78ab6d】 This improves review quality because every requirement can map directly to acceptance tests, regression tests, property checks, or manual QA scenarios. 【1-9cce47】【12-78ab6d】
+
+Avoid vague phrases like “fast,” “secure,” “intuitive,” or “robust” unless they are paired with measurable criteria. 【2-e3db31】【4-926af8】 For example, replace “the search should be fast” with “WHEN a user searches fewer than 50,000 records, THE SYSTEM SHALL return results within 500ms at p95.” 【4-926af8】【8-8ccc44】
+
+## 4. Define durable agent context
+
+Maintain project-level guidance files such as `AGENTS.md`, `GEMINI.md`, steering files, or equivalent context documents that describe repo conventions, architecture principles, test commands, coding standards, dependency rules, and review expectations. 【4-926af8】【11-cbf52a】【8-8ccc44】 These files reduce repeated prompting and give agents persistent team context that survives individual chat sessions. 【11-cbf52a】【8-8ccc44】
+
+Keep these context files concise and operational: what to do, what not to do, how to validate, and where to look for examples. 【4-926af8】【13-5a73cf】 For larger teams, split context into progressive layers—lightweight metadata, detailed instructions, and references loaded only when needed—to avoid context bloat. 【13-5a73cf】【14-53e83b】
+
+## 5. Validate continuously with automated checks
+
+Every spec should define the validation path before implementation starts: unit tests, integration tests, contract tests, accessibility checks, security checks, performance checks, and manual acceptance criteria where needed. 【3-8ff2d0】【4-926af8】 Agents should be expected to run the relevant test suite, inspect failures, fix issues, and report what passed before a task is considered complete. 【4-926af8】【15-879dd9】
+
+Use hooks or automation for repetitive guardrails, such as generating tests on file save, scanning for secrets before commit, updating docs after API changes, or blocking implementation before spec tasks are approved. 【16-3eaf4b】【8-8ccc44】 These automations make quality gates consistent instead of relying on developer memory. 【16-3eaf4b】【17-a093c1】
+
+## 6. Review intent, not just code
+
+Pull requests should show both the code diff and the spec delta so reviewers can evaluate whether the intended behavior changed, not merely whether the implementation compiles. 【6-599c2d】【3-8ff2d0】 This is especially important for AI-generated code because plausible diffs can still miss the original intent or silently change assumptions. 【3-8ff2d0】【2-e3db31】
+
+A strong PR checklist should ask: does the implementation satisfy each acceptance criterion, are edge cases covered, are tests traceable to requirements, did the agent follow repo conventions, and did the spec change if behavior changed? 【4-926af8】【6-599c2d】
+
+## 7. Match rigor to risk
+
+Use lightweight specs for small, reversible changes; spec-anchored plans for normal feature work; and highly structured spec-as-source workflows for regulated, high-risk, cross-team, or mission-critical systems. 【1-9cce47】【18-83e2a4】 Avoid turning SDD into bureaucracy: the goal is not longer documents, but clearer decisions, fewer assumptions, and faster validated delivery. 【19-835119】【2-e3db31】
+
+## 8. Recommended team operating model
+
+For each feature, assign a clear spec owner, usually product or tech lead, and require engineering signoff before implementation begins. 【2-e3db31】【3-8ff2d0】 Keep tasks atomic enough for agents or engineers to complete and validate independently. 【3-8ff2d0】【4-926af8】 Track every task to a requirement, every requirement to a test or acceptance check, and every code change to a reviewed spec or approved exception. 【6-599c2d】【1-9cce47】
+
+The practical rule for June 2026: do not ask an AI agent to “build the feature” until the team has agreed on what success means, what constraints apply, how the work will be decomposed, and how completion will be verified. 【4-926af8】【9-a0be24】

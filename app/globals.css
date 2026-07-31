@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nav-height: 56px;
+  }
+
+  html {
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  /* Refined focus ring — subtle, consistent with the brand navy */
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.400");
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Slim, understated scrollbars for a more premium feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: theme("colors.gray.300");
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: theme("colors.gray.400");
+  }
+
+  /* Leaflet CSS must load globally */
+}
+
+/* ── Leaflet popup overrides ─────────────────────────────────── */
+
+/* Remove default border + shadow; apply our own */
+.c-discover-popup .leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(15, 27, 42, 0.14), 0 1px 4px rgba(15, 27, 42, 0.08);
+  border: 1px solid #e5e7eb; /* gray-200 */
+  overflow: hidden;
+}
+
+/* Leaflet sets an inline width on the content element from its own
+   measurement — override it so the popup body honors the fixed width
+   declared by MapPopupShell instead of collapsing narrower. */
+.c-discover-popup .leaflet-popup-content {
+  margin: 12px 14px;
+  width: auto !important;
+  line-height: 1.5;
+}
+
+/* Tip/arrow: match our popup border color */
+.c-discover-popup .leaflet-popup-tip-container {
+  margin-top: -1px;
+}
+
+.c-discover-popup .leaflet-popup-tip {
+  box-shadow: none;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+/* Tighten the close button */
+.c-discover-popup .leaflet-popup-close-button {
+  top: 8px !important;
+  right: 10px !important;
+  color: #9ca3af !important; /* gray-400 */
+  font-size: 18px !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+
+.c-discover-popup .leaflet-popup-close-button:hover {
+  color: #16253a !important; /* brand-800 */
+  background: none !important;
+}
+
+@layer components {
+  /* Table styles used across all explore pages */
+  .data-table {
+    @apply w-full text-sm border-collapse;
+  }
+
+  .data-table th {
+    @apply bg-gray-100 text-gray-600 font-semibold text-left px-3 py-2 border-b border-gray-200 whitespace-nowrap;
+  }
+
+  .data-table th[data-sortable] {
+    @apply cursor-pointer select-none hover:bg-gray-200;
+  }
+
+  .data-table td {
+    @apply px-3 py-2 border-b border-gray-100 align-middle;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-gray-50;
+  }
+
+  /* Gap label styling */
+  .gap-label {
+    @apply text-gray-400 italic text-xs;
+  }
+
+  /* ── Premium design-system helpers ──────────────────────────── */
+
+  /* Page titles: refined serif for a confident, editorial feel */
+  .page-title {
+    @apply text-[1.7rem] leading-tight font-semibold text-brand-900 tracking-tight;
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  /* Thin gold underline accent, used sparingly beneath key headings */
+  .accent-rule {
+    @apply relative inline-block;
+  }
+  .accent-rule::after {
+    content: "";
+    @apply absolute left-0 -bottom-1.5 h-[2px] w-8 bg-gold-500 rounded-full;
+  }
+
+  /* Card surface used for panels/containers throughout the app */
+  .surface-card {
+    @apply bg-white border border-gray-200/80 rounded-lg shadow-[0_1px_2px_rgba(15,27,42,0.03)];
+  }
+}
+
+* {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

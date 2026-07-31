@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "routes": [
+    { "route": "/workspaces/*", "rewrite": "/workspaces/_.html" },
+    { "route": "/entity/*", "rewrite": "/entity/_/_.html" },
+    { "route": "/explore/*", "rewrite": "/explore/_.html" },
+    { "route": "/fl/workspaces/*", "rewrite": "/fl/workspaces/_.html" },
+    { "route": "/ca/workspaces/*", "rewrite": "/ca/workspaces/_.html" }
+  ],
+  "responseOverrides": {
+    "404": { "rewrite": "/404.html", "statusCode": 404 }
+  },
+  "navigationFallback": {
+    "rewrite": "/404.html",
+    "exclude": [
+      "/data/*",
+      "/*.{png,jpg,jpeg,gif,svg,ico,css,js,json,woff,woff2,ttf}"
+    ]
+  }
+}

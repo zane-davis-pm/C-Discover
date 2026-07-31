@@ -1,0 +1,270 @@
+# C‑Discover — Updated Project Description
+
+## Project Overview
+C‑Discover is an internal Florida public-sector reference tool designed to provide a fast, credible, and consistent starting point for identifying potential clients.
+
+Its primary purpose is to enable teams to:
+- Quickly locate public-sector entities
+- Understand key context
+- Assemble initial target lists using reliable, source-backed information
+
+The tool is intentionally scoped as a **quick-lookup and early target identification resource**.
+
+**Out of Scope:**
+- No ranking, scoring, or recommendations  
+- No outreach or relationship management  
+- No automated prioritization  
+
+Instead, it provides **structured, comparable data** that enables partner-led decision-making.
+
+---
+
+## Core Function
+
+**Primary use case:**
+> Rapidly generate defensible, high-quality initial target lists across Florida’s public sector.
+
+### Key Capabilities
+- Identify:
+  - Counties
+  - Municipalities
+  - School districts
+  - Special districts
+- Understand:
+  - Scale
+  - Context
+  - Accessibility
+- Assemble and export shortlists for:
+  - GTM planning
+  - Engagement strategy
+
+---
+
+## Product Principles
+
+### 1. Neutral, Partner-Led Decision Making
+C‑Discover:
+- Does not interpret or evaluate opportunities
+- Enables partners to:
+  - Apply judgment
+  - Defend selections
+  - Integrate into GTM strategies
+
+---
+
+### 2. Credible and Source-Backed Data
+- All key data points tied to verifiable sources
+- Includes:
+  - Source links for critical fields
+  - Clearly defined data fields
+  - Explicit gap labeling:
+    - Unknown
+    - Unavailable
+    - Not applicable
+  - “Last updated” indicators (where feasible)
+
+**Outcome:** Defensible, trustworthy outputs
+
+---
+
+### 3. Structured and Comparable Outputs
+- Consistent field structure across entities
+- Separation of:
+  - Comparable vs non-comparable entity types
+- Standardized metrics
+
+**Outcome:** Fast scanning, comparison, and extraction
+
+---
+
+### 4. Speed and Clarity Over Complexity
+Designed for **30-second comprehension**
+
+For each entity, users should quickly answer:
+- What is this entity?
+- How large is it?
+- What is its context?
+- Where is access (website)?
+- Is the data credible?
+
+---
+
+## Information Model
+
+### Entity Coverage
+
+Four primary types:
+- Counties (comparable statewide)
+- Municipalities (comparable statewide)
+- School Districts (distinct model)
+- Special Districts (discovery-focused in V1)
+
+> Entity types are separated to preserve comparability and avoid misleading analysis.
+
+---
+
+### Core Data Categories
+
+Each entity includes:
+
+#### 1. Demographic Context *(Primary Lens)*
+- Population
+- Educational attainment (if available)
+- Income indicators
+
+#### 2. Financial Context *(Supporting)*
+- Revenue / expenditure scale (if available)
+- High-level financial indicators
+
+#### 3. Access & Visibility
+- Official website
+
+#### 4. Source References
+- Direct links to source data
+- Supporting documentation
+
+---
+
+## Core Output: Exportable Shortlists (V1)
+
+### Capabilities
+Users can:
+- Select entities across categories
+- Build custom shortlists
+- Export lists for:
+  - GTM planning
+  - Partner discussions
+  - Further analysis
+
+### Export Includes
+- Entity name and type
+- Demographic indicators
+- Financial context (if available)
+- Website access
+- Source references
+
+**Purpose:** Neutral, defensible inputs for downstream decisions
+
+---
+
+## User Experience (V1)
+
+### Navigation Structure
+- **Explore:**  
+  Counties | Municipalities | School Districts | Special Districts  
+
+- **Map:**  
+  Counties and municipalities only
+
+- **Shortlists:**  
+  Save and export selections
+
+**Design Goal:**  
+Minimal friction from → lookup → shortlist → export
+
+---
+
+## Data Governance and Maintenance
+
+Lightweight governance ensures quality without adding workflow friction.
+
+### Components
+- Standardized sourcing (priority: official/state sources)
+- Required fields by entity type
+- Clear rules for missing data
+- Periodic data refresh
+- Controlled schema updates
+
+---
+
+## What C‑Discover Is Not
+
+To maintain clarity, the tool does **not** include:
+- Target ranking, scoring, or prioritization
+- AI-generated recommendations
+- Relationship or client tracking
+- Outreach planning workflows
+- Cross-selling coordination tools
+
+---
+
+## Summary
+
+C‑Discover supports the earliest stage of market engagement by:
+- Providing credible, structured inputs
+- Enabling rapid list-building and comparison
+- Delivering clean outputs for downstream strategy
+
+> It is not a decision engine — it is a consistent, defensible starting point.
+
+---
+
+# Project Roadmap
+
+## Guiding Principles
+- Maintain comparability within entity types
+- Avoid forced one-size-fits-all scoring
+- Add complexity only when supported by data and UX
+- Deliver value early while scaling cleanly
+
+---
+
+## Phased Roadmap
+
+### V1 — Credible Statewide Starting Point
+- Launch:
+  - All 67 counties
+  - All municipalities
+- Include:
+  - Demographics
+  - Financial indicators
+  - Website access
+  - Source-backed fields
+- Add:
+  - School districts (discovery only)
+  - Special districts (discovery only)
+
+**Goal:** Clean, comparable foundation
+
+---
+
+### V2 — School District Expansion + Navigation
+- Promote school districts to full decision layer:
+  - Enrollment / FTE
+  - Financial data
+  - Spending metrics
+  - Website access
+- Add cross-entity navigation:
+  - County → municipalities
+  - County → school district
+  - County → related special districts
+
+**Goal:** Expand usable coverage with structured navigation
+
+---
+
+### V3 — Full Florida Public-Sector Platform
+- Unified platform across:
+  - Counties
+  - Municipalities
+  - School districts
+  - Special districts
+- Add:
+  - Special district cohorts (purpose-based grouping)
+  - Workspace features:
+    - Saved lists
+    - Tags
+    - Side-by-side comparison (within entity classes)
+    - County ecosystem views
+
+**Goal:** Full planning platform with structured flexibility
+
+---
+
+## Roadmap Summary
+
+- **V1:** Clean, comparable datasets → prove value  
+- **V2:** Add school districts + navigation → broaden usability  
+- **V3:** Full platform + workspace → enable deeper planning  
+
+> Result: A scalable, credible system that supports public-sector opportunity identification across Florida.

@@ -1,0 +1,79 @@
+name: Annual Data Refresh
+
+# SPEC_V3.md §3.3, §8.3, V3-F-02
+#
+# Runs the full data pipeline once a year (first week of January, aligned to
+# when EDR/Census/FLDOE typically publish updated figures) and opens a pull
+# request with the resulting diff to /public/data/{state}/**. This
+# intentionally does NOT commit directly to main — source data changes go
+# through the same review as any other change, since a bad upstream fetch
+# (e.g. a partial Census response) could silently corrupt figures partners
+# are actively citing to clients.
+#
+# Runs every state listed in public/data/states.json (run_all.sh --all).
+# Since PROJECT_PLAN_MULTISTATE.md Phase 3 Part B, run_all.sh requires an
+# explicit --state <code> or --all — calling it with no arguments now hard-
+# fails immediately (usage/exit 2). This workflow predates that refactor and
+# was not updated at the time; fixed here ahead of Phase 5.
+
+on:
+  schedule:
+    # 06:00 UTC on the 3rd of January, every year.
+    - cron: "0 6 3 1 *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run data pipeline
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: bash scripts/pipeline/run_all.sh --all
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- public/data; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open pull request with data diff
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(data): annual pipeline refresh"
+          branch: data-refresh/${{ github.run_id }}
+          title: "Annual data refresh — ${{ github.run_id }}"
+          body: |
+            Automated annual run of `scripts/pipeline/run_all.sh --all` (SPEC_V3.md §3.3,
+            PROJECT_PLAN_MULTISTATE.md Phase 5).
+
+            This PR is opened for review, not auto-merged — please spot-check
+            the diff to `public/data/{state}/**` before merging, since a partial
+            or malformed upstream fetch could silently corrupt figures
+            partners are actively citing to clients.
+          add-paths: |
+            public/data/**/*.json
+          labels: |
+            data-refresh
+            automated

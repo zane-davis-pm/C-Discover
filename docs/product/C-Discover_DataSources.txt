@@ -1,0 +1,24 @@
+* EDR Population & Demographic Data — Florida Products: <https://edr.state.fl.us/Content/population-demographics/data/index-floridaproducts.cfm>
+* EDR Expenditures and Revenues Reported by Florida’s County Governments: <https://edr.state.fl.us/Content/local-government/data/revenues-expenditures/stwidefiscal.cfm>
+* EDR Expenditures and Revenues Reported by Florida’s Municipal Governments: <https://edr.state.fl.us/Content/local-government/data/revenues-expenditures/munifiscal.cfm>
+* EDR Local Government Financial Reporting: <https://edr.state.fl.us/Content/local-government/local-govt-instructions/index.cfm>
+* EDR Area Profiles: County, City, School District: <https://edr.state.fl.us/Content/area-profiles/index.cfm>
+* EDR Education Estimating Conference — PreK-12 Enrollment: <https://www.edr.state.fl.us/Content/conferences/publicschools/index.cfm>
+* U.S. Census Bureau American Community Survey 5-Year Estimates: <https://www.census.gov/data/developers/data-sets/acs-5year.html>
+* U.S. Census Bureau QuickFacts — Florida: <https://www.census.gov/quickfacts/fact/table/FL>
+* Florida DFS LOGERx Public Reports Menu: <https://logerx.myfloridacfo.gov/LogerX/PublicReportsMenu>
+* FloridaCommerce Official List of Special Districts: <https://www.floridajobs.org/community-planning-and-development/special-districts/special-district-accountability-program/official-list-of-special-districts>
+* FLDOE School District Annual Financial Reports: <https://www.fldoe.org/finance/fl-edu-finance-program-fefp/school-dis-annual-financial-reports-af.stml>
+* FLDOE Expenditures per Full-Time Equivalent Student: <https://www.fldoe.org/finance/fl-edu-finance-program-fefp/>
+* FLDOE PK-12 Public School Data Publications & Reports: <https://www.fldoe.org/accountability/data-sys/edu-info-accountability-services/pk-12-public-school-data-pubs-reports/>
+* FLDOE School District Data: <https://www.fldoe.org/accountability/data-sys/school-dis-data/>
+* Florida Department of Revenue Office of Tax Research — Collections & Distributions: <https://floridarevenue.com/dataPortal/Pages/otr2.aspx>
+* Florida Geospatial Open Data Portal / FL GIO: <https://geodata.floridagio.gov/>
+* Florida County Boundaries: <https://florida-office-of-broadband-flbroadband.hub.arcgis.com/datasets/florida-county-boundaries/explore>
+* Florida Municipal / City Boundaries: <https://services6.arcgis.com/B8iKcMs83hgqommE/ArcGIS/rest/services/city_boundaries/FeatureServer>
+* U.S. Census Bureau TIGER/Line Shapefiles: <https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>
+* Florida Auditor General Audit Reports: <https://flauditor.gov/pages/reports.aspx>
+* Florida Association of Counties County Revenues & Expenditures Report: <https://www.fl-counties.com/services/publications/>
+* FloridaOpenGov: <https://www.floridaopengov.com/>
+* Transparency Florida: <http://www.transparencyflorida.gov/>
+* NCES EDGE ACS-Education Tabulation: <https://nces.ed.gov/programs/edge/Demographic/ACS>
