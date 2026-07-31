@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function CountiesPage({ params }: { params: { state: string } }) {
-  return <CountiesPageClient state={params.state} />;
+  return <CountiesPageClient params={params} />;
 }

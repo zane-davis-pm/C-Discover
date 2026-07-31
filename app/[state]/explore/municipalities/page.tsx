@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function MunicipalitiesPage({ params }: { params: { state: string } }) {
-  return <MunicipalitiesPageClient state={params.state} />;
+  return <MunicipalitiesPageClient params={params} />;
 }

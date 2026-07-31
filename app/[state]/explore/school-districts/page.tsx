@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function SchoolDistrictsPage({ params }: { params: { state: string } }) {
-  return <SchoolDistrictsPageClient state={params.state} />;
+  return <SchoolDistrictsPageClient params={params} />;
 }

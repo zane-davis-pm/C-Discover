@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function ShortlistPage({ params }: { params: { state: string } }) {
-  return <ShortlistPageClient state={params.state} />;
+  return <ShortlistPageClient params={params} />;
 }

@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function SpecialDistrictsPage({ params }: { params: { state: string } }) {
-  return <SpecialDistrictsPageClient state={params.state} />;
+  return <SpecialDistrictsPageClient params={params} />;
 }

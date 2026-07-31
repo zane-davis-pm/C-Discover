@@ -21,5 +21,5 @@ export function generateStaticParams() {
 }
 
 export default function MapPage({ params }: { params: { state: string } }) {
-  return <MapPageClient state={params.state} />;
+  return <MapPageClient params={params} />;
 }
