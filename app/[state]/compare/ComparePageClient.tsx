@@ -333,9 +333,9 @@ function CompareContent({ state }: { state: string }) {
 }
 
 export default function ComparePageClient({
-  state,
+  params,
 }: {
-  state: string;
+  params: { state: string };
 }) {
   return (
     <Suspense
@@ -343,7 +343,7 @@ export default function ComparePageClient({
         <div className="py-16 text-center text-gray-400 text-sm">Loading…</div>
       }
     >
-      <CompareContent state={state} />
+      <CompareContent state={params.state} />
     </Suspense>
   );
 }

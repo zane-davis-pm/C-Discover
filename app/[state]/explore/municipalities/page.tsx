@@ -3,6 +3,8 @@ import { join } from "path";
 import MunicipalitiesPageClient from "./MunicipalitiesPageClient";
 import type { StatesManifest } from "@/lib/types";
 
+export const dynamic = "force-static";
+
 function getStatesManifest(): StatesManifest {
   try {
     const raw = readFileSync(

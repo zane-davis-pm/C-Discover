@@ -3,6 +3,9 @@ import { join } from "path";
 import ComparePageClient from "./ComparePageClient";
 import type { StatesManifest } from "@/lib/types";
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 function getStatesManifest(): StatesManifest {
   try {
     const raw = readFileSync(
@@ -26,5 +29,5 @@ export default function ComparePage({
 }: {
   params: { state: string };
 }) {
-  return <ComparePageClient state={params.state} />;
+  return <ComparePageClient params={params} />;
 }

@@ -3,6 +3,9 @@ import { join } from "path";
 import { redirect } from "next/navigation";
 import type { StatesManifest } from "@/lib/types";
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 function getStatesManifest(): StatesManifest {
   try {
     const raw = readFileSync(
